@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Categories · Our Finances</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>💸 Our Finances</h1>
+    <nav class="segmented">
+      <a href="/">Dashboard</a>
+      <a href="/categories" class="active">Categories</a>
+    </nav>
+    <div class="status" id="status"></div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Combine categories</h2>
+      <p class="muted intro">
+        Categories with the same <b>Shows as</b> name are combined in the dashboard (capitals, accents and
+        emoji don't matter). Pick a name used by the other budget, or type a new one for both.
+        Clear the box to go back to the category's own name. Changes apply right away.
+      </p>
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search categories…">
+        <select id="person"></select>
+        <label><input type="checkbox" id="unmatched"> Only categories not combined yet</label>
+        <label><input type="checkbox" id="hidden"> Show unused hidden categories</label>
+        <span class="muted" id="count"></span>
+      </div>
+      <div class="table-wrap tall"><table id="table"></table></div>
+    </section>
+  </main>
+
+  <datalist id="names"></datalist>
+  <script src="/static/categories.js"></script>
+</body>
+</html>

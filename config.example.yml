@@ -1,0 +1,36 @@
+# Copy to config.yml. Changes apply on the next page load / sync, no restart needed.
+
+people:
+  - name: Alex
+    token_env: YNAB_TOKEN_ALEX
+    # YNAB plan (budget) names to include. Empty = the most recently modified one.
+    # If your plans are shared (YNAB Together), both tokens see both plans: name them.
+    plans: []
+    color: "#4f8cff"
+  - name: Sam
+    token_env: YNAB_TOKEN_SAM
+    plans: []
+    color: "#ff6b9a"
+
+sync_interval_minutes: 30
+
+# Money moving between the two of you shows up in both budgets. Transactions with these
+# payees or categories are left out of the "Together" view (they still count in each
+# person's own view). Matching ignores case, accents and emoji.
+combined:
+  exclude_payees:
+    - Alex
+    - Sam
+  exclude_categories: []
+
+# Categories in these groups count as invested/saved instead of spending
+# (YNAB itself counts transfers to investment tracking accounts as spending).
+savings_groups:
+  - Investments
+
+# Combining categories across budgets is done on the dashboard's Categories page
+# (stored in data/mappings.json, keyed by YNAB category id).
+
+# Category groups whose names differ between budgets (used by "Spending by group").
+group_aliases:
+  # "Bouffe": "Food"

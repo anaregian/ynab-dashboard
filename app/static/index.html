@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Finances</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>💸 Our Finances</h1>
+    <nav class="segmented">
+      <a href="/" class="active">Dashboard</a>
+      <a href="/categories">Categories</a>
+    </nav>
+    <div class="controls">
+      <div class="segmented" id="views"></div>
+      <select id="period"></select>
+      <button id="sync" title="Fetch the latest data from YNAB">↻ Sync</button>
+    </div>
+    <div class="status" id="status"></div>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <main id="main">
+    <section class="kpis" id="kpis"></section>
+
+    <section class="grid">
+      <div class="card wide">
+        <h2>Income vs spending</h2>
+        <div class="chart"><canvas id="cashflow"></canvas></div>
+      </div>
+      <div class="card">
+        <h2>Spending by group</h2>
+        <div class="chart"><canvas id="groups"></canvas></div>
+      </div>
+
+      <div class="card">
+        <h2>Where each income goes</h2>
+        <div id="income-use"></div>
+      </div>
+      <div class="card wide">
+        <h2>Share of income spent <span class="sub">· 3-month rolling</span></h2>
+        <div class="chart"><canvas id="spendrate"></canvas></div>
+      </div>
+
+      <div class="card wide">
+        <h2>Net worth</h2>
+        <div class="chart tall"><canvas id="networth"></canvas></div>
+      </div>
+      <div class="card">
+        <h2>This month's plan <span class="sub" id="budget-month"></span></h2>
+        <div id="plan-stats" class="chips"></div>
+        <div class="chart tall"><canvas id="budget"></canvas></div>
+      </div>
+
+      <div class="card full">
+        <h2>Top categories by month</h2>
+        <div class="chart"><canvas id="trend"></canvas></div>
+      </div>
+
+      <div class="card full" id="split-card">
+        <h2>Who pays for what</h2>
+        <div class="chart tall"><canvas id="split"></canvas></div>
+      </div>
+
+      <div class="card full">
+        <h2>Categories</h2>
+        <div class="table-wrap"><table id="categories"></table></div>
+      </div>
+
+      <div class="card">
+        <h2>Top payees</h2>
+        <div class="table-wrap"><table id="payees"></table></div>
+      </div>
+      <div class="card wide">
+        <h2>Biggest purchases</h2>
+        <div class="table-wrap"><table id="largest"></table></div>
+      </div>
+
+      <div class="card full">
+        <h2>Accounts</h2>
+        <div class="table-wrap"><table id="accounts"></table></div>
+      </div>
+    </section>
+    <p class="footnote" id="footnote"></p>
+  </main>
+
+  <script src="/static/chart.umd.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

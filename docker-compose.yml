@@ -1,0 +1,16 @@
+services:
+  ynab-dashboard:
+    build: .
+    image: ynab-dashboard:local
+    container_name: ynab-dashboard
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - 3003:8000
+    volumes:
+      - ./data:/data
+      - ./config.yml:/config/config.yml:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 1m
+    mem_limit: 256m
